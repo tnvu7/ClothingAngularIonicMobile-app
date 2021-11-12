@@ -1,0 +1,7 @@
+{
+  "name": "Cashregister",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
