@@ -31,6 +31,9 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.productsList = this.service.getAllProducts();
   }
+  ionViewDidEnter(){
+    this.productsList = this.service.getAllProducts();
+  }
   itemClicked(pro) {
     this.theType = pro.type;
     this.thePrice = pro.price;
@@ -54,7 +57,10 @@ export class HomePage implements OnInit {
   BuyBtnClicked() {
     if (parseInt(this.theQuantity) > parseInt(this.theAvailQty)) {
       this.createAlert("Please select sufficient quantity!");
-    } else {
+    } else if (this.theType == "Type" || this.theQuantity == "Quantity" || this.Total == "Total"){
+      this.createAlert("Please select an item to buy");
+    }
+    else {
 
       this.foundPro.type = this.theType;
       this.foundPro.price = this.thePrice;

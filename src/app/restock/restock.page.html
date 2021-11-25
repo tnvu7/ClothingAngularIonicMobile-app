@@ -10,12 +10,13 @@
 <ion-content>
   <ion-item>
     <ion-label position="floating">Enter new quantity</ion-label>
-    <ion-input [(ngModel)]="qty"></ion-input>
+    <ion-input [formControl]="qty"></ion-input>
   </ion-item>
+  <br/>
+  <ion-button fill="outline" id="container1" (click)="restockBtn()">Restock</ion-button>
+  <ion-button fill="outline" id="container2" [routerLink]="['/manager']">Cancel</ion-button>
 
-  <ion-button (click)="restockBtn()">Restock</ion-button>
-  <ion-button [routerLink]="['/manager']">Cancel</ion-button>
-
+  <h4>{{label}}</h4>
   <ion-list>
     <ion-item *ngFor="let pro of products" button (click)="itemClicked(pro)">
       <ion-label>{{pro.type}}</ion-label>

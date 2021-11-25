@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../Product';
+import { FormControl } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,19 +10,34 @@ import { ProductService } from '../product.service';
 })
 export class RestockPage implements OnInit {
   products : any;
-  qty: string = "";
+  qty= new FormControl('');
   chosenPro: string = "";
-  constructor(private service: ProductService) { }
+  label: string= "";
+  constructor(private service: ProductService, public alertController: AlertController) { }
 
   ngOnInit() {
     this.products = this.service.getAllProducts();
   }
+  async createAlert(msg) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: msg,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
   restockBtn(){
-    if (this.qty != "" && this.chosenPro != ""){
-        this.service.restockProduct(this.chosenPro, parseInt(this.qty));
+    if (this.qty.value != "" && this.chosenPro != ""){
+        this.service.restockProduct(this.chosenPro, parseInt(this.qty.value));
+        this.label = "";
+    } else if (this.qty.value == ""){
+        this.createAlert("Please enter the quantity");
+    } else {
+      this.createAlert("Please enter pick the product");
     }
   }
   itemClicked(pro){
     this.chosenPro = pro.type;
+    this.label = "Restocking: " + pro.type;
   }
 }

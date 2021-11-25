@@ -61,4 +61,12 @@ export class ProductService {
             }
         });
     }
+    addNewProduct(name, p, qty){
+        const product : Product ={
+            type: name,
+            price: p,
+            quantity: parseInt(qty)
+        };
+        this.products.push(product);
+    }
 }
