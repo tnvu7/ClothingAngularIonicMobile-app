@@ -1,0 +1,21 @@
+[{
+    "type": "Pants",
+    "price": "50.7",
+    "quantity": 20
+}, {
+    "type": "Shoes",
+    "price": "90",
+    "quantity": 50
+},{
+    "type": "Hats",
+    "price": "20.7",
+    "quantity": 10
+}, {
+    "type": "Tshirts",
+    "price": "10",
+    "quantity": 10
+},{
+    "type": "Dresses",
+    "price": "40.3",
+    "quantity": 24
+}]

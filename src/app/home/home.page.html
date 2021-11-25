@@ -1,20 +1,80 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="medium">Cash Register App</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content style="background-color: gray;">
+    <div id="container">
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h2 style="padding-left: 10px;">{{theType}}</h2>
+            </ion-col>
+            <ion-col>
+              <ion-button color="danger" id="managerbtn" [routerLink]="['/manager']">Manager</ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    
+  <ion-grid >
+    <ion-row>
+      <ion-col size=3>
+        <ion-button id="btn" color="light" (click)="QtyClicked(1)">1</ion-button>
+      </ion-col>
+      <ion-col size=3>
+        <ion-button id="btn" color="light" (click)="QtyClicked(2)">2</ion-button>
+      </ion-col>
+      <ion-col size=3>
+        <ion-button id="btn" color="light" (click)="QtyClicked(3)">3</ion-button>
+      </ion-col>
+      <ion-col>
+        <h4>{{Total}}</h4>
+      </ion-col>
+    </ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-row>
+      <ion-col size=3> 
+        <ion-row>
+          <ion-button id="btn1" color="light" (click)="QtyClicked(4)">4</ion-button> 
+          <ion-button id="btn" color="light" (click)="QtyClicked(7)">7</ion-button>
+        </ion-row>
+      </ion-col>
+      <ion-col size=3> 
+        <ion-row >
+          <ion-button id="btn1" color="light" (click)="QtyClicked(5)">5</ion-button> 
+          <ion-button id="btn" color="light" (click)="QtyClicked(8)">8</ion-button>
+        </ion-row>
+      </ion-col>
+      <ion-col size=3> 
+        <ion-row>
+          <ion-button id="btn1" color="light" (click)="QtyClicked(6)">6</ion-button> 
+          <ion-button id="btn" color="light" (click)="QtyClicked(9)">9</ion-button>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size=3> <ion-button id="buybtn" color="primary" (click)="BuyBtnClicked()">Buy</ion-button> </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size=3 offset="3">
+        <ion-button id="btn" color="light" (click)="QtyClicked(0)">0</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h2 style="padding-left: 10px;">{{theQuantity}}</h2>
+  <!-- List of Text Items -->
+<ion-list>
+  <ion-item *ngFor="let pro of productsList" button (click)="itemClicked(pro)">
+    <ion-label>
+      <h2>{{pro.type}}</h2>
+      <h3 style="color: red;">{{pro.price}}</h3>
+    </ion-label>
+    <ion-label slot="end">{{pro.quantity}}</ion-label>
+  </ion-item>
+  
+</ion-list>
+
+</div>
 </ion-content>

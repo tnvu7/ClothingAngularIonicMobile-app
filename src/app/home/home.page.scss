@@ -1,27 +1,21 @@
+
+#managerbtn{
+  font-size: 16pt;
+  width: 145px;
+  height: 60px;
+}
+#btn {
+  font-size: 18pt;
+}
+#btn1 {
+  font-size: 18pt;
+  padding-bottom: 10px;
+}
+#buybtn {
+  width: 60px;
+  height: 130px;
+  font-size: 16pt;
+}
 #container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  padding: 20px;
 }

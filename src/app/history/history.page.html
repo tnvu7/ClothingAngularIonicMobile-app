@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/manager"></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let pro of purchasedList" [routerLink]="['/historydetail', pro.type]">
+      <ion-label>
+        <h2>{{pro.type}}</h2>
+        <h3>{{pro.quantity}}</h3>
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>
